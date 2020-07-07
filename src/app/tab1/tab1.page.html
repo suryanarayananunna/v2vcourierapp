@@ -1,17 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+     V2V couriers
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <app-explore-container name="Tab 1 page"></app-explore-container> -->
+
+  <ion-card *ngFor="let item of list">
+    <ion-card-header>
+      <ion-card-subtitle>Parcel Details</ion-card-subtitle>
+      <ion-card-title>Parcel ID</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <pre>Delivery Address:  </pre>
+      <ion-button color="dark" href="./received-package">Received</ion-button>
+      <ion-button color="dark" slot="right" href="./delivery">Delivery</ion-button>  
+    
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

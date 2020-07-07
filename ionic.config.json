@@ -1,5 +1,8 @@
 {
   "name": "v2vcourierapp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
   "type": "angular"
 }

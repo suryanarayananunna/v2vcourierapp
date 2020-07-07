@@ -9,4 +9,10 @@ export class Tab1Page {
 
   constructor() {}
 
+  //get the items to be deliverd for the delivery person
+ 
+
+  list = [1,2,3,4,5,6]
+
+
 }

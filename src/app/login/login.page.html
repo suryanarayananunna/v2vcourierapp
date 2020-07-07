@@ -1,0 +1,42 @@
+<ion-header>
+  <!-- <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-subtitle>Login</ion-card-subtitle> -->
+      <ion-card-title>Login</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+     <ion-list>
+      
+        <ion-label>Enter Username</ion-label>
+       <ion-item>
+         <ion-input type = "text" [value]="username"></ion-input>
+       </ion-item>
+       <ion-label>Enter Password</ion-label>
+      
+       
+       <ion-item>
+        <ion-input type = "password" [value]="password"></ion-input>
+       </ion-item>
+       <ion-item>
+          <ion-label>Select Role</ion-label>
+          <ion-select [compareWith]="compareWith" [(ngModel)] = "selected">
+            <ion-select-option *ngFor="let role of Roles">{{role.rolename}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-button (click)="login(username,password,selected)">Submit</ion-button>
+          <ion-button (click)="presentToastWithOptions()">Register</ion-button>
+        </ion-item>
+        
+    
+     </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

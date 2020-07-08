@@ -4,6 +4,42 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-subtitle>Login</ion-card-subtitle> -->
+      <ion-card-title>Register</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+     <ion-list>
+      
+        <ion-label>Enter Username</ion-label>
+       <ion-item>
+         <ion-input type = "text" [(ngModel)]="username"></ion-input>
+       </ion-item>
+       <ion-label>Enter Password</ion-label>
+       <ion-item>
+        <ion-input type = "password" [(ngModel)]="password"></ion-input>
+       </ion-item>
+       <ion-label>Enter Email</ion-label>
+       <ion-item>
+        <ion-input type = "email" [(ngModel)]="email"></ion-input>
+       </ion-item>
+       <ion-item>
+          <ion-label>Select Role</ion-label>
+          <ion-select [(ngModel)] = "roleselected">
+            <ion-select-option *ngFor="let role of Roles">{{role.rolename}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-button (click)="register(username,password,email,roleselected)">Submit</ion-button>
+          {{roleselected}}
+        </ion-item>
+        
+    
+     </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

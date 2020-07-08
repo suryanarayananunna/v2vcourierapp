@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
+import { RegisterService } from '../services/register.service';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-register',
@@ -6,12 +10,93 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  [x: string]: any;
 
-  constructor() { }
+  public username: string;
+  public password: string;
+  public roleselected: string;
+  public email: string;
+  public jsondata = {};
+
+  constructor(public toastController: ToastController,private registerservice : RegisterService,private httpclient : HttpClient) { }
 
   ngOnInit() {
   }
+  Roles: any[] = [
+    {
+      id: 1,
+      rolename: 'Admin',
+    },
+    {
+      id: 2,
+      rolename: 'Courier service',
+    },
+    {
+      id: 3,
+      rolename: 'User',
+          }
+  ];
 
+
+
+  register(username :string,password :string,email:string,rolename:string){
+    this.username = username;
+    this.password= password;
+    this.email = email;
+    this.roleselected = rolename;
+    this.presentToast(this.username,this.password,this.email,this.roleselected);
+    this.jsondata["UserName"] = this.username;
+    this.jsondata["Email"] = this.email;
+    this.jsondata["Password"] = this.password;
+    this.jsondata["Role"] = this.roleselected;
+    console.log("THE JOSN DATA " + this.jsondata);
+    this.registerservice.registerdata(this.jsondata).subscribe(response => {
+      // do whatever you want with the response
+      console.log(response);
+   }, error => {
+     console.log(error);
+      // handle error here
+      // error.status to get the error code
+   });
+  }
+
+  async presentToast(username :string,password :string,email:string,roleselected : string) {
+    this.username = username;
+    this.password= password;
+    this.email = email;
+    this.roleselected = roleselected;
+    const toast = await this.toastController.create({
+      message: username + password + email + roleselected,
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  async presentToastWithOptions() {
+    const toast = await this.toastController.create({
+      header: 'Toast header',
+      message: 'Click to Close',
+      position: 'top',
+      buttons: [
+        {
+          side: 'start',
+          icon: 'star',
+          text: 'Favorite',
+          handler: () => {
+            console.log('Favorite clicked');
+          }
+        }, {
+          text: 'Done',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    toast.present();
+
+}
 }
 
 

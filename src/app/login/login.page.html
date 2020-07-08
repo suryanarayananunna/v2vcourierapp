@@ -16,23 +16,23 @@
       
         <ion-label>Enter Username</ion-label>
        <ion-item>
-         <ion-input type = "text" [value]="username"></ion-input>
+         <ion-input type = "text" [(ngModel)]="Login_User_Name"></ion-input>
        </ion-item>
        <ion-label>Enter Password</ion-label>
       
        
        <ion-item>
-        <ion-input type = "password" [value]="password"></ion-input>
+        <ion-input type = "password" [(ngModel)]="Login_User_Password"></ion-input>
        </ion-item>
        <ion-item>
           <ion-label>Select Role</ion-label>
-          <ion-select [compareWith]="compareWith" [(ngModel)] = "selected">
+          <ion-select [(ngModel)] = "roleselected">
             <ion-select-option *ngFor="let role of Roles">{{role.rolename}}</ion-select-option>
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-button (click)="login(username,password,selected)">Submit</ion-button>
-          <ion-button (click)="presentToastWithOptions()">Register</ion-button>
+          <ion-button (click)="login(Login_User_Name,Login_User_Password,roleselected)">Submit</ion-button>
+          {{roleselected}}
         </ion-item>
         
     

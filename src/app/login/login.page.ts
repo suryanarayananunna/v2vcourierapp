@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { LoginService } from '../services/login.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,12 @@ import { ToastController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  constructor(public toastController: ToastController) { }
+  public Login_User_Name: string;
+  public Login_User_Password: string;
+  public Login_Role_Id:number;
+  public roleselected:any;
+  public jsondata = {};
+  constructor(public toastController: ToastController,private loginservice: LoginService,httpclient : HttpClient) { }
 
   ngOnInit() {
   }
@@ -27,25 +34,43 @@ export class LoginPage implements OnInit {
           }
   ];
 
-  compareWithFn = (o1, o2) => {
-    return o1 && o2 ? o1.id === o2.id : o1 === o2;
-  };
 
-  compareWith = this.compareWithFn;
 
-  username: string;
-  password: string;
-  selected: any;
-  login(username :string,password :string,rolename:string){
-    this.username = username;
-    this.password= password;
-    this.selected= rolename;
-    this.presentToast(this.username,this.password,this.selected);
+  login(username :string,password :string,roleselected:string){
+    this.Login_User_Name = username;
+    this.Login_User_Password= password;
+    if(roleselected == "Admin"){
+      this.Login_Role_Id = 1;
+    }
+    else if(roleselected == "Courier service"){
+      this.Login_Role_Id = 2;
+    }
+    else{
+      this.Login_Role_Id = 3;
+    }
+    
+    this.presentToast(this.Login_User_Name,this.Login_User_Password,this.Login_User_Password);
+    
+    this.jsondata["Login_Role_Id"] = this.Login_Role_Id;
+    this.jsondata["Login_User_Name"] = this.Login_User_Name;
+    this.jsondata["Login_User_Password"] = this.Login_User_Password;
+    
+    console.log("THE JOSN DATA " + this.jsondata);
+    this.loginservice.logindata(this.jsondata).subscribe(response => {
+      // do whatever you want with the response
+      console.log(response);
+   }, error => {
+     console.log(error);
+      // handle error here
+      // error.status to get the error code
+   });
+    
+  
   }
 
-  async presentToast(username :string,password :string,rolename:string) {
+  async presentToast(username :string,password :string,roleselected : string) {
     const toast = await this.toastController.create({
-      message: username + password + rolename,
+      message: username + password + roleselected,
       duration: 2000
     });
     toast.present();

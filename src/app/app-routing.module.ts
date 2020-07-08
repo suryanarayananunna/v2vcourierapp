@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'qrgenerate',
+    loadChildren: () => import('./qrgenerate/qrgenerate.module').then( m => m.QrgeneratePageModule)
+  },
  
 ];
 @NgModule({

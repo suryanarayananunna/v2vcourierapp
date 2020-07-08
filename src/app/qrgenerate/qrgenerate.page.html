@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>qrgenerate</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-subtitle>Login</ion-card-subtitle> -->
+      <ion-card-title>Generate QR code</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+     <ion-list>
+      
+        <ion-label>Enter CourierId</ion-label>
+       <ion-item>
+         <ion-input type = "text" [(ngModel)]="CourierId"></ion-input>
+       </ion-item>
+
+       <ion-label>Enter CourierName</ion-label>
+       <ion-item>
+        <ion-input type = "text" [(ngModel)]="CourierName"></ion-input>
+       </ion-item>
+
+       <ion-label>Enter CourierDescription</ion-label>
+       <ion-item>
+        <ion-input type = "text" [(ngModel)]="CourierDescription"></ion-input>
+       </ion-item>
+
+       
+        <ion-label>Enter CourierCustomerId</ion-label>
+        <ion-item>
+         <ion-input type = "text" [(ngModel)]="CourierCustomerId"></ion-input>
+        </ion-item>
+        
+          <ion-label>Enter CourierType</ion-label>
+        <ion-item>
+         <ion-input type = "text" [(ngModel)]="CourierType"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-button (click)="generateQrCode(CourierId,CourierName,CourierDescription,CourierType,CourierProductId,CourierCustomerId)">Submit</ion-button>
+  
+        </ion-item>
+        
+    
+     </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

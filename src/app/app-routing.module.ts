@@ -26,6 +26,30 @@ const routes: Routes = [
     path: 'qrgenerate',
     loadChildren: () => import('./qrgenerate/qrgenerate.module').then( m => m.QrgeneratePageModule)
   },
+  {
+    path: 'intro',
+    loadChildren: () => import('./intro/intro.module').then( m => m.IntroPageModule)
+  },
+  {
+    path: 'get-product-details',
+    loadChildren: () => import('./get-product-details/get-product-details.module').then( m => m.GetProductDetailsPageModule)
+  },
+  {
+    path: 'get-courier-details',
+    loadChildren: () => import('./get-courier-details/get-courier-details.module').then( m => m.GetCourierDetailsPageModule)
+  },
+  {
+    path: 'get-customer-details',
+    loadChildren: () => import('./get-customer-details/get-customer-details.module').then( m => m.GetCustomerDetailsPageModule)
+  },
+  {
+    path: 'get-delivery-details',
+    loadChildren: () => import('./get-delivery-details/get-delivery-details.module').then( m => m.GetDeliveryDetailsPageModule)
+  },
+  {
+    path: 'product',
+    loadChildren: () => import('./product/product.module').then( m => m.ProductPageModule)
+  },
  
 ];
 @NgModule({

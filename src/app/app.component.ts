@@ -31,7 +31,7 @@ export class AppComponent {
   navigate : any = [
     {
       title : "Home",
-      url   : "/home",
+      url   : "/tabs/tab1",
       icon  : "home"
     },
     {
@@ -40,10 +40,26 @@ export class AppComponent {
       icon  : "chatbubbles-outline"
     },
     {
-      title : "Contacts",
-      url   : "/recepies",
-      icon  : "call-outline"
+      title : "Get Product Details",
+      url   : "/get-product-details",
+      icon  : "basket"
     },
+    {
+      title : "Get Customer Details",
+      url   : "/get-customer-details",
+      icon  : "person"
+    },
+    {
+      title : "Get Courier Details",
+      url   : "/get-courier-details",
+      icon  : "logo-dropbox"
+    },
+    {
+      title : "Get Delivery Details",
+      url   : "/get-delivery-details",
+      icon  : "paper-plane"
+    },
+
   ];
 
 
@@ -55,8 +71,20 @@ export class AppComponent {
     else if(item == 'qrcodereader'){
       this.router.navigateByUrl('/qrcodereader');
     }
+    else if(item == "Get Product Details"){
+      this.router.navigateByUrl('/get-product-details');
+    }
+    else if(item== "Get Customer Details"){
+      this.router.navigateByUrl('/get-customer-details');
+    }
+    else if(item== "Get Courier Details"){
+      this.router.navigateByUrl('/get-courier-details');
+    }
+    else if(item== "Get Delivery Details"){
+      this.router.navigateByUrl('/get-delivery-details');
+    }
     else{
-      this.router.navigateByUrl('/contacts');
+      this.router.navigateByUrl('/get-courier-details');
     }
   }
 

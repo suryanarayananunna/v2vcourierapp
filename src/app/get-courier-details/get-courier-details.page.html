@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-label>Courier Details</ion-label>
+    <!-- <ion-button><ion-icon name="arrow-back"></ion-icon></ion-button> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="getCourierDetails()">
+  
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Enter Courier Id</ion-label>
+          <ion-input type = "number" [(ngModel)] = "Courier_id" name="Courier_id"></ion-input>
+         
+        </ion-item>
+      </ion-col>
+      
+      <ion-col><ion-button type="submit">Submit</ion-button></ion-col>
+    </ion-row>
+  </ion-grid>
+
+</form>
+<ion-card *ngIf = "cardDisp">
+  <ion-card-header>
+    <ion-card-subtitle>Courier Details</ion-card-subtitle>
+    <ion-item> <ion-label>Name:</ion-label> <ion-label>{{Courier_Name}} </ion-label></ion-item>
+    <ion-item> 
+      <ion-label >Current Location:</ion-label>
+      <ion-label >{{courier_Current_Location}}</ion-label>
+    </ion-item>
+    <ion-item> <ion-label>Type:</ion-label><ion-label>{{courier_Type}}</ion-label></ion-item>
+    <ion-item> <ion-label>Description:</ion-label><ion-label>{{courier_Desc}}</ion-label></ion-item>
+  </ion-card-header>
+
+  <ion-card-content>
+
+
+  </ion-card-content>
+</ion-card>
+<ion-label *ngIf="isresponseNull">No Courier available with id {{proid}}</ion-label>
+</ion-content>

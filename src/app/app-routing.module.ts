@@ -4,7 +4,13 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./intro/intro.module').then( m => m.IntroPageModule)
+   
+  },
+  {
+    path: 'intro',
+    loadChildren: () => import('./intro/intro.module').then( m => m.IntroPageModule)
+   
   },
   {
     path: 'received-package',
@@ -27,8 +33,8 @@ const routes: Routes = [
     loadChildren: () => import('./qrgenerate/qrgenerate.module').then( m => m.QrgeneratePageModule)
   },
   {
-    path: 'intro',
-    loadChildren: () => import('./intro/intro.module').then( m => m.IntroPageModule)
+    path: 'home',
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
     path: 'get-product-details',

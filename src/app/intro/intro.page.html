@@ -1,9 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>intro</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+          <div class="row">
+              <div class="col-md-8">
+                <img src="../../assets/img/virtusa-logo.png" />
+                
+              </div>
+              <h4>V2V Couriers</h4>
+              <h6 style="padding-left:10%;padding-right:10%">
+                
+              </h6>
+          </div>
+      </ion-slide>
+      <ion-slide>
+          <div class="row">
+              <div class="col-md-8">
+                <img src="../../assets/img/logo.jpg" />
+              </div>
+              <h4></h4>
+              <h6 style="padding-left:10%;padding-right:10%">
+              </h6>
+          </div>
+      </ion-slide>
+      <ion-slide>
+          <div class="row">
+              <div class="col-md-8">
+                  <img src="../../assets/img/bus.jpg" />
+              </div>
+              <h4>Get Started</h4>
+              <h6 style="padding-left:10%;padding-right:10%">
+              </h6>
+              <button (click)="gotoLogin()">
+                  <ion-icon style="font-size: 45px;" name="arrow-forward"></ion-icon>
+              </button>
+          </div>
+      </ion-slide>
+  </ion-slides>
 </ion-content>

@@ -33,7 +33,6 @@
     "cordova-plugin-add-swift-support": "^2.0.2",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-nativegeocoder": "^3.4.1",
-    "cordova-plugin-qrscanner": "^3.0.1",
     "cordova-sqlite-storage": "^5.0.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.10.0",
@@ -74,7 +73,6 @@
     "plugins": {
       "cordova-plugin-geolocation": {},
       "cordova-plugin-nativegeocoder": {},
-      "cordova-plugin-qrscanner": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},

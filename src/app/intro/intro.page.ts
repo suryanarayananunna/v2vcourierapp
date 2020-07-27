@@ -22,12 +22,13 @@ export class IntroPage implements OnInit {
     speed: 400
   };
   ngOnInit() {
-    this.storage.set('isFirst', true);
+  
     this.storage.get('isFirst').then(val => {
       if(isNullOrUndefined(val)) {
         this.storage.set('isFirst', false);
       } else if (!val) {
         this.navCtrl.navigateRoot('/home/tabs/tab1');
+       
       }
     });
   }
@@ -37,6 +38,7 @@ export class IntroPage implements OnInit {
   }
 
   gotoLogin(): void {
+    this.menuCtrl.enable(true);
     this.navCtrl.navigateForward('home/tabs/tab1');
   }
 

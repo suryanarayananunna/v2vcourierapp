@@ -13,12 +13,18 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot({
+  imports: [BrowserModule,
+     IonicModule.forRoot(),
+      AppRoutingModule,
+       HttpClientModule,
+       ReactiveFormsModule,
+        FormsModule,
+        IonicStorageModule.forRoot({
     name: '_mydb',
     driverOrder: ['indexeddb', 'sqlite', 'websql'],
 

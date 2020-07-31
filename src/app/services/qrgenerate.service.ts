@@ -28,7 +28,7 @@ export class QrgenerateService {
 
   generateqr(jsondata: {}) {
     console.log(JSON.stringify(jsondata));
-  return this.httpclient.post<any>('http://localhost:8080/qrgenerate',JSON.stringify(jsondata),{headers : new HttpHeaders({'Content-Type': 'application/json'})});
+  return this.httpclient.post<Blob>('http://localhost:8080/qrgenerate',JSON.stringify(jsondata),{headers : new HttpHeaders({'Content-Type': 'application/json'}),responseType: 'blob' as 'json'});
 
   }
 }

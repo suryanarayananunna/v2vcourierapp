@@ -31,13 +31,13 @@ export class AppComponent {
   navigate : any = [
     {
       title : "Home",
-      url   : "/tabs/tab1",
+      url   : "home/tabs/tab1",
       icon  : "home"
     },
     {
-      title : "qrcodereader",
-      url   : "/qrcodereader",
-      icon  : "chatbubbles-outline"
+      title : "Generate QR Code",
+      url   : "/qrgenerate",
+      icon  : "barcode"
     },
     {
       title : "Get Product Details",
@@ -59,7 +59,11 @@ export class AppComponent {
       url   : "/get-delivery-details",
       icon  : "paper-plane"
     },
-
+    {
+      title : "Set Delivery Details",
+      url   : "/setcourierdetails",
+      icon  : "paper-plane"
+    },
   ];
 
 
@@ -68,8 +72,8 @@ export class AppComponent {
     if(item == 'Home'){
       this.router.navigateByUrl('/home');
     }
-    else if(item == 'qrcodereader'){
-      this.router.navigateByUrl('/qrcodereader');
+    else if(item == 'Generate QR Code'){
+      this.router.navigateByUrl('/qrgenerate');
     }
     else if(item == "Get Product Details"){
       this.router.navigateByUrl('/get-product-details');
@@ -82,6 +86,9 @@ export class AppComponent {
     }
     else if(item== "Get Delivery Details"){
       this.router.navigateByUrl('/get-delivery-details');
+    }
+    else if(item== "Set Delivery Details"){
+      this.router.navigateByUrl('/setcourierdetails');
     }
     else{
       this.router.navigateByUrl('/get-courier-details');

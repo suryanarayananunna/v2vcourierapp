@@ -5,6 +5,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CourierService {
+  setcourierdetails(jsondata: any) {
+    console.log(JSON.stringify(jsondata));
+      return this.httpclient.post<any>('http://localhost:8080/setCourierDetails',JSON.stringify(jsondata),{headers : new HttpHeaders({'Content-Type': 'application/json'})});
+    
+  }
 
     getCourierDetails(jsondata: any) {
       console.log(JSON.stringify(jsondata));

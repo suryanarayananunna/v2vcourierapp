@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-label>Courier Details</ion-label>
+    <!-- <ion-button><ion-icon name="arrow-back"></ion-icon></ion-button> -->
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-subtitle>Login</ion-card-subtitle> -->
+      <ion-card-title>Upload Courier Details</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+
+
+      <form  [formGroup]="setCourierDetails" class="list-form">
+
+        <ion-item no-padding class="animated fadeInUp">
+            <ion-label position="floating">
+              
+                Courier Id
+            </ion-label>
+            <ion-input color="secondary" type="text" formControlName="fullName"></ion-input>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="setCourierDetails.get('Courier_id').touched && setCourierDetails.get('Courier_id').hasError('required')">
+            <ion-text color="warning">
+               Enter valid Courier Id
+            </ion-text>
+        </p>
+
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating">
+            
+              Courier Current Location
+          </ion-label>
+          <ion-input color="secondary" type="text" formControlName="fullName"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="setCourierDetails.get('Courier_Current_Location').touched && setCourierDetails.get('Courier_Current_Location').hasError('required')">
+          <ion-text color="warning">
+             Enter Courier Current Location
+          </ion-text>
+      </p>
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          
+          Courier Delivery Id
+        </ion-label>
+        <ion-input color="secondary" type="text" formControlName="fullName"></ion-input>
+    </ion-item>
+    <p ion-text class="text08" *ngIf="setCourierDetails.get('Courier_Deli_Id').touched && setCourierDetails.get('Courier_Deli_Id').hasError('required')">
+        <ion-text color="warning">
+           Enter valid Courier Delivery Id
+        </ion-text>
+    </p>
+
+    <ion-item no-padding class="animated fadeInUp">
+      <ion-label position="floating">
+        
+          Courier Description
+      </ion-label>
+      <ion-input color="secondary" type="text" formControlName="fullName"></ion-input>
+  </ion-item>
+  <p ion-text class="text08" *ngIf="setCourierDetails.get('Courier_Desc').touched && setCourierDetails.get('Courier_Desc').hasError('required')">
+      <ion-text color="warning">
+         Enter valid Courier Description
+      </ion-text>
+  </p>
+
+  <ion-item no-padding class="animated fadeInUp">
+    <ion-label position="floating">
+      
+        Courier Name
+    </ion-label>
+    <ion-input color="secondary" type="text" formControlName="fullName"></ion-input>
+</ion-item>
+<p ion-text class="text08" *ngIf="setCourierDetails.get('Courier_Name').touched && setCourierDetails.get('Courier_Name').hasError('required')">
+    <ion-text color="warning">
+       Enter valid Courier Name
+    </ion-text>
+</p>
+
+
+<ion-item no-padding class="animated fadeInUp">
+  <ion-label position="floating">
+    
+      Product Id
+  </ion-label>
+  <ion-input color="secondary" type="text" formControlName="fullName"></ion-input>
+</ion-item>
+<p ion-text class="text08" *ngIf="setCourierDetails.get('Courier_Product_Id').touched && setCourierDetails.get('Courier_Product_Id').hasError('required')">
+  <ion-text color="warning">
+     Enter valid  Product Id
+  </ion-text>
+</p>
+
+
+
+<ion-item no-padding class="animated fadeInUp">
+  <ion-label position="floating">
+    Courier Type
+  </ion-label>
+  <ion-input color="secondary" type="text" formControlName="fullName"></ion-input>
+</ion-item>
+<p ion-text class="text08" *ngIf="setCourierDetails.get('Courier_Type').touched && setCourierDetails.get('Courier_Type').hasError('required')">
+  <ion-text color="warning">
+     Enter valid Courier Type
+  </ion-text>
+</p>
+
+       
+
+      
+    </form>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

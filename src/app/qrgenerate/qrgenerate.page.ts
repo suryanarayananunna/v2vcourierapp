@@ -8,12 +8,22 @@ import { QrgenerateService } from '../services/qrgenerate.service';
 })
 export class QrgeneratePage implements OnInit {
 
-  public CourierId : string;
-  public CourierName: string;
-  public CourierDescription: string;
-  public CourierProductId: string;
-  public CourierCustomerId: string;
-  public CourierType: string;
+ 
+
+  public QRData= {
+     Courier_id :  "",
+     Courier_Name:   "", 
+     Courier_Desc: "",  
+     Courier_Product_Id:  "",
+     Courier_Customer_Id: "",
+     Courier_Type: ""
+    };
+    public valid: false;
+
+    // if(this.QRData["Courier_id"] != "" && QRData.Courier_Name != "" && QRData.Courier_Desc != "" && QRData.Courier_Product_Id != "" && QRData.Courier_Customer_Id != "" && QRData.Courier_Type != "" ){
+
+    // }
+
   public jsondata = {};
 
   constructor(private qrservice : QrgenerateService) { }
@@ -42,27 +52,51 @@ export class QrgeneratePage implements OnInit {
   //  });
     
   // }
+  retrievedImage: any;
+    base64Data: any;
+    retrieveResonse: any;
+    message: string;
+    imageName: any;
+    imageUrl: any;
+    base64data: any;
+
+  generateQrCode() : void{
 
 
-  generateQrCode(CourierId : string,CourierName: string,CourierDescription: string, CourierType : string,CourierProductId: string,CourierCustomerId: string) : void{
 
-    this.CourierId =CourierId;
-    this.CourierName = CourierName;
-    this.CourierDescription = CourierDescription;
-    this.CourierType = CourierType;
-    this.CourierProductId = CourierProductId;
-    this.CourierCustomerId = CourierCustomerId;
-
-    this.jsondata["CourierId"] = this.CourierId;
-    this.jsondata["CourierName"] = this.CourierName;
-    this.jsondata["CourierDescription"] = this.CourierDescription;
-    this.jsondata["CourierType"] = this.CourierType;
-    this.jsondata["CourierProductId"] = this.CourierProductId;
-    this.jsondata["CourierCustomerId"] = this.CourierCustomerId;
+    this.jsondata["Courier_id"] = this.QRData["Courier_id"];
+    this.jsondata["Courier_Name"] = this.QRData["Courier_Name"];
+    this.jsondata["Courier_Desc"] = this.QRData["Courier_Desc"];
+    this.jsondata["Courier_Type"] = this.QRData["Courier_Type"];
+    this.jsondata["Courier_Product_Id"] =this.QRData["Courier_Product_Id"];
+    this.jsondata["Courier_Customer_Id"] = this.QRData["Courier_Customer_Id"];
     console.log("THE JOSN DATA " + this.jsondata);
-    this.qrservice.generateqr(this.jsondata).subscribe(response => {
+    this.qrservice.generateqr(this.jsondata).subscribe(res => {
       // do whatever you want with the response
-      console.log(response);
+   
+          console.log("got result back"+ res);
+
+
+          var reader = new FileReader();
+          reader.readAsDataURL(res); 
+          reader.onloadend = function() {
+            var base64data;
+              base64data = reader.result;                
+              console.log(base64data);
+          }
+
+          //rename imageFileBinary to imageUrl
+
+let imageBinary = this.base64data; //image binary data response from api
+let imageBase64String= btoa(imageBinary);
+this.imageUrl = 'data:image/jpeg;base64,' + imageBase64String;
+
+console.log(this.imageUrl)
+
+
+
+
+          console.log(res.type);
    }, error => {
      console.log(error);
       // handle error here

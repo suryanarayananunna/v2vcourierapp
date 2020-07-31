@@ -1,8 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>qrgenerate</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-label>Generate QR code</ion-label>
+    <!-- <ion-button><ion-icon name="arrow-back"></ion-icon></ion-button> -->
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content>
   <ion-card>
@@ -12,41 +17,42 @@
     </ion-card-header>
   
     <ion-card-content>
-     <ion-list>
-      
-        <ion-label>Enter CourierId</ion-label>
-       <ion-item>
-         <ion-input type = "text" [(ngModel)]="CourierId"></ion-input>
-       </ion-item>
 
-       <ion-label>Enter CourierName</ion-label>
-       <ion-item>
-        <ion-input type = "text" [(ngModel)]="CourierName"></ion-input>
-       </ion-item>
 
-       <ion-label>Enter CourierDescription</ion-label>
-       <ion-item>
-        <ion-input type = "text" [(ngModel)]="CourierDescription"></ion-input>
-       </ion-item>
+      <!-- <form #form="ngForm" (ngSubmit)="generateQrCode(form)" novalidate> -->
 
-       
-        <ion-label>Enter CourierCustomerId</ion-label>
+        <form #form="ngForm" novalidate>
+        <ion-label>Courier Id</ion-label>
         <ion-item>
-         <ion-input type = "text" [(ngModel)]="CourierCustomerId"></ion-input>
+          <ion-input type = "text" required [(ngModel)]="QRData.Courier_id" ngControl="CourierId" name="CourierId"></ion-input>
         </ion-item>
-        
-          <ion-label>Enter CourierType</ion-label>
+
+        <ion-label>Courier Name</ion-label>
         <ion-item>
-         <ion-input type = "text" [(ngModel)]="CourierType"></ion-input>
+         <ion-input type = "text" required [(ngModel)]="QRData.Courier_Name" ngControl="CourierName" name="CourierName"></ion-input>
         </ion-item>
-        
-        <ion-item>
-          <ion-button (click)="generateQrCode(CourierId,CourierName,CourierDescription,CourierType,CourierProductId,CourierCustomerId)">Submit</ion-button>
   
+        <ion-label>Courier Description</ion-label>
+        <ion-item>
+         <ion-input type = "text" required [(ngModel)]="QRData.Courier_Desc" ngControl="CourierDescription" name="CourierDescription"></ion-input>
         </ion-item>
+ 
         
-    
-     </ion-list>
+         <ion-label>Courier CustomerId</ion-label>
+         <ion-item>
+          <ion-input type = "text" required [(ngModel)]="QRData.Courier_Customer_Id" ngControl="CourierCustomerId" name="CourierCustomerId"></ion-input>
+         </ion-item>
+         
+         <ion-label>Courier Type</ion-label>
+         <ion-item>
+             
+          <ion-input type = "text" required [(ngModel)]="QRData.Courier_Type" ngControl="CourierType" name="CourierType"></ion-input>
+         </ion-item>
+         <ion-button type="submit" [disabled]="valid" (click)="generateQrCode()">Submit</ion-button>
+      </form>
+
+
+
     </ion-card-content>
   </ion-card>
 </ion-content>
